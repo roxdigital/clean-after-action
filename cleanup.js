@@ -14,9 +14,6 @@ async function main() {
         throw new Error(`Failed to list files: ${err}`);
       }
       for (const file of files) {
-        if (keepGit && file === '.git') {
-          continue;
-        }
         console.log(`Deleting ${file}`);
         await io.rmRF(file);
       }
